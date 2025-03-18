@@ -7,7 +7,6 @@ a {
 html, body {
     width: 100%;
     overflow-x: auto;
-    white-space: nowrap;
     margin: 0;
     padding: 0;
     background-color: rgb(28, 36, 45);
@@ -78,7 +77,7 @@ html, body {
 }
 
 .news_section {
-    width: 644px;
+    width: 100%; /* Full left side */
     background-color: #1c242d;
     flex: 1;
     padding: 15px;
@@ -103,6 +102,7 @@ html, body {
     flex: 2;
     display: flex;
     flex-direction: column;
+    align-items: center; /* Center content */
     gap: 20px;
 }
 
@@ -110,11 +110,13 @@ html, body {
     background: #1c242d;
     padding: 15px;
     border-radius: 8px;
+    width: 100%; /* Ensures content doesn't stretch too much */
 }
 
 .top_players h2, .top_heroes h2 {
     color: white;
     margin-bottom: 10px;
+    text-align: center; /* Center text */
 }
 
 .player_item, .hero_item {
@@ -123,8 +125,8 @@ html, body {
     margin-bottom: 10px;
     border-radius: 5px;
     color: white;
+    text-align: center; /* Center text */
 }
-
 
 .small_menu {
     display: flex;
@@ -134,7 +136,6 @@ html, body {
 .small_menu div {
     margin-left: 15px;
 }
-
 
 .registration button {
     background-color: #ED3B1C;
