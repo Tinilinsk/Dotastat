@@ -52,6 +52,15 @@
             <h2>Explore the meta trends for all heroes and facets in Dota 2. 
                 Filter by position, rank, game mode, and date range to see the most popular heroes and how they perform.</h2>
         </div>
+        <div class="switchers">
+            <div class="switch-container">
+                <input type="radio" id="option1" name="option" checked>
+                <label for="option1" class="switch-option">All Pick</label>
+
+                <input type="radio" id="option2" name="option">
+                <label for="option2" class="switch-option">Turbo</label>
+            </div>
+        </div>
     </div>
 </body>
 </html>

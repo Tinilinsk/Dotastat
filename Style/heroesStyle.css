@@ -92,3 +92,54 @@ html, body {
 .small_menu div {
     margin-left: 15px;
 }
+
+/* ================= Content ================= */
+
+.text {
+    font-size: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.text h2 {
+    color: rgb(156 163 171);
+}
+
+
+/* ================== Switchers ================ */
+.switch-container {
+    display: flex;
+    border: 1px solid #a9cf544d;
+    width: 200px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.switch-option {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s ease;
+    border: 6px solid rgb(15 22 30); 
+    border-radius: 6px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    background-color: rgb(36 47 57);
+    color: white;
+}
+
+input[type="radio"] + label {
+    background-color: rgb(15 22 30);
+    color: white;
+}
+
+.switch-option:hover {
+    background-color: #ddd;
+}
