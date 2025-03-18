@@ -67,6 +67,32 @@ html, body {
     font-size: 16px;
 }
 
+.registration button {
+    background-color: #ED3B1C;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.registration button:hover {
+    background-color: #c5300f;
+}
+
+.search-icon i:hover {
+    color: #ED3B1C;
+}
+
+.small_menu {
+    display: flex;
+    align-items: center;
+}
+
+.small_menu div {
+    margin-left: 15px;
+}
+
 /* ================= Content ================= */
 .main {
     display: flex;
@@ -129,28 +155,3 @@ html, body {
     text-align: center;
 }
 
-.small_menu {
-    display: flex;
-    align-items: center;
-}
-
-.small_menu div {
-    margin-left: 15px;
-}
-
-.registration button {
-    background-color: #ED3B1C;
-    border: none;
-    padding: 8px 15px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.registration button:hover {
-    background-color: #c5300f;
-}
-
-.search-icon i:hover {
-    color: #ED3B1C;
-}
