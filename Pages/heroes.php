@@ -19,7 +19,7 @@
                 <div class="navigation_item">
                     <ul class="navigation_list" style="list-style-type: none;">
                         <li>
-                        <a href="heroes.php">Heroes</a>
+                        <a href="">Heroes</a>
                         </li>
                         <li>
                         <a href="">Items</a>
@@ -47,27 +47,7 @@
         </div>
     </header>
     <div class="main">
-        <div class="news_section">
-            <h2>Latest News</h2>
-            <div class="news_item">Placeholder for news 1</div>
-            <div class="news_item">Placeholder for news 2</div>
-            <div class="news_item">Placeholder for news 3</div>
-            <div class="news_item">Placeholder for news 4</div>
-        </div>
-        <div class="side_section">
-            <div class="top_players">
-                <h2>Top Players</h2>
-                <div class="player_item">Player 1</div>
-                <div class="player_item">Player 2</div>
-                <div class="player_item">Player 3</div>
-            </div>
-            <div class="top_heroes">
-                <h2>Top Heroes</h2>
-                <div class="hero_item">Hero 1</div>
-                <div class="hero_item">Hero 2</div>
-                <div class="hero_item">Hero 3</div>
-            </div>
-        </div>
+        
     </div>
 </body>
 </html>
