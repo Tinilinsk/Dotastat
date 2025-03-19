@@ -15,6 +15,9 @@
             <h2>Sing In</h2>
             <form action="#" method="post">
                 <div class="InputBx">
+                    <input type="text" name="nickname" placeholder="Nickname" required>
+                </div>
+                <div class="InputBx">
                     <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="InputBx">
@@ -25,7 +28,7 @@
                 </div>
                 <div class="links">
                     <a href="index.php">Home</a>
-                    <a href="singup.php">SingUp</a>
+                    <a href="singIn.php">SingIn</a>
                 </div>
             </form>
         </div>
