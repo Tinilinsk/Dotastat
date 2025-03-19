@@ -13,9 +13,9 @@
         <i></i>
         <div class="contact">
             <h2>Sing In</h2>
-            <form action="#" method="post">
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                 <div class="InputBx">
-                    <input type="text" name="nickname" placeholder="Nickname" required>
+                    <input type="text" name="username" placeholder="Username" required>
                 </div>
                 <div class="InputBx">
                     <input type="email" name="email" placeholder="Email" required>
@@ -35,3 +35,43 @@
     </div>
 </body>
 </html>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "dota_stat";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Error: " . $conn->connect_error);
+}
+
+$username = $_POST['username'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+$check_stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+$check_stmt->bind_param("s", $email);
+$check_stmt->execute();
+$check_stmt->store_result();
+
+if ($check_stmt->num_rows > 0) {
+    echo "Error: An account with this email already exists!";
+} else {
+    $stmt = $conn->prepare("INSERT INTO users (password, username, email) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $password, $username, $email);
+
+    if ($stmt->execute()) {
+        header("Location: welcome.php");
+        exit();
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
+
+$check_stmt->close();
+$conn->close();
+?>
