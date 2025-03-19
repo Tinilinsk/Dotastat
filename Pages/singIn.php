@@ -24,7 +24,7 @@
                     <input type="submit" value="Send">
                 </div>
                 <div class="links">
-                    <a href="#">Forget Password</a>
+                    <a href="index.php">Home</a>
                     <a href="#">Singup</a>
                 </div>
             </form>
