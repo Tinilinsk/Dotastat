@@ -15,9 +15,6 @@
             <h2>Sing In</h2>
             <form action="#" method="post">
                 <div class="InputBx">
-                    <input type="text" name="Nick" placeholder="Nick" required>
-                </div>
-                <div class="InputBx">
                     <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="InputBx">
@@ -25,6 +22,10 @@
                 </div>
                 <div class="InputBx">
                     <input type="submit" value="Send">
+                </div>
+                <div class="links">
+                    <a href="#">Forget Password</a>
+                    <a href="#">Singup</a>
                 </div>
             </form>
         </div>
