@@ -1,0 +1,136 @@
+.ring i:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    animation: animate 6s linear infinite;
+}
+
+.ring:hover i:nth-child(1) {
+    border: 4px solid lawngreen;
+    filter: drop-shadow(0 0 20px lawngreen); 
+}
+
+.ring i:nth-child(2) {
+    border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
+    animation: animate 4s linear infinite;
+}
+
+.ring:hover i:nth-child(2) {
+    border: 4px solid red;
+    filter: drop-shadow(0 0 20px red); 
+}
+
+.ring i:nth-child(3) {
+    border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
+    animation: animate2 10s linear infinite;
+}
+
+.ring:hover i:nth-child(3) {
+    border: 4px solid yellow;
+    filter: drop-shadow(0 0 20px yellow); 
+}
+
+h2 {
+    color: white;
+}
+
+.ring {
+    position: relative;
+    width: 600px; 
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.ring i {
+    pointer-events: none;
+    transition: border 0.3s ease, filter 0.3s ease;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid white;
+    top: 0;
+    left: 0;
+}
+
+@keyframes animate2 {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+@keyframes animate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #111;
+    color: white;
+}
+
+.contact {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 300px; 
+    text-align: center;
+}
+
+.InputBx {
+    margin: 10px 0;
+}
+
+.InputBx input {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.InputBx input,
+.InputBx textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444; 
+    background-color: #222; 
+    color: white; 
+    font-size: 16px;
+    outline: none;
+}
+
+.InputBx input::placeholder,
+.InputBx textarea::placeholder {
+    color: #bbb;
+}
+
+.InputBx input:focus,
+.InputBx textarea:focus {
+    border: 1px solid lawngreen;
+    box-shadow: 0 0 5px lawngreen;
+}
+
+.InputBx textarea {
+    resize: vertical;
+    width: 300px;
+    height: 100px;
+}
+
+.InputBx input[type="submit"] {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+}
+
+.InputBx input[type="submit"]:hover {
+    background-color: rgb(236, 64, 33);
+}

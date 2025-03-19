@@ -67,7 +67,8 @@ html, body {
     font-size: 16px;
 }
 
-.registration button {
+.registration a {
+    font-family: Arial, sans-serif;
     background-color: #ED3B1C;
     border: none;
     padding: 8px 15px;
@@ -76,7 +77,7 @@ html, body {
     cursor: pointer;
 }
 
-.registration button:hover {
+.registration a:hover {
     background-color: #c5300f;
 }
 

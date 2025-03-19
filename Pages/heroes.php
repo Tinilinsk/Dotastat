@@ -41,7 +41,7 @@
                     </a>
                 </div>
                 <div class="registration">
-                    <button>Sing In</button>
+                    <a href="singIn.php">Sing In</a>
                 </div>
             </div>
         </div>
