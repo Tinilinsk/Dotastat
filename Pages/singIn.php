@@ -12,22 +12,16 @@
         <i></i>
         <i></i>
         <div class="contact">
-            <h2>Message</h2>
+            <h2>Sing In</h2>
             <form action="#" method="post">
                 <div class="InputBx">
-                    <input type="text" name="name" placeholder="Name" required pattern="^[A-Za-z\s]+$" title="Name can only contain Latin letters and spaces.">
-                </div>
-                <div class="InputBx">
-                    <input type="text" name="Surname" placeholder="Surname" required pattern="^[A-Za-z\s]+$" title="Surname can only contain Latin letters and spaces.">
+                    <input type="text" name="Nick" placeholder="Nick" required>
                 </div>
                 <div class="InputBx">
                     <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="InputBx">
-                    <input type="text" name="subject" placeholder="Message Subject" required>
-                </div>
-                <div class="InputBx">
-                    <textarea placeholder="Your message..." required></textarea>
+                    <input type="password" name="password" placeholder="Password" required>
                 </div>
                 <div class="InputBx">
                     <input type="submit" value="Send">
