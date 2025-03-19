@@ -63,7 +63,7 @@ if ($check_stmt->num_rows > 0) {
     $stmt->bind_param("sss", $password, $username, $email);
 
     if ($stmt->execute()) {
-        header("Location: welcome.php");
+        header("Location: index.php");
         exit();
     } else {
         echo "Error: " . $stmt->error;
