@@ -57,7 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($password == $row['user_password']) {
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
-            echo "Login successful!";
+            // echo "Login successful!";
+            header("Location: index.php");
         } else {
             echo "Incorrect password!";
         }
