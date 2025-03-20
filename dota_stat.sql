@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 20 2025 г., 21:46
+-- Время создания: Мар 20 2025 г., 22:19
 -- Версия сервера: 10.4.32-MariaDB
 -- Версия PHP: 8.2.12
 
@@ -102,6 +102,7 @@ CREATE TABLE `match_players` (
 CREATE TABLE `news` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `img_url` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `author_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
