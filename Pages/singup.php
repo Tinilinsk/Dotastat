@@ -52,6 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
     $check_stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
     $check_stmt->bind_param("s", $email);
     $check_stmt->execute();
@@ -60,8 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($check_stmt->num_rows > 0) {
         echo "Account with this email already exists!";
     } else {
-        $stmt = $conn->prepare("INSERT INTO users (password, username, email) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $password, $username, $email);
+        $stmt = $conn->prepare("INSERT INTO users (password_hash, username, email) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $password_hash, $username, $email);
 
         if ($stmt->execute()) {
             header("Location: index.php");
