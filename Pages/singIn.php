@@ -13,7 +13,7 @@
         <i></i>
         <div class="contact">
             <h2>Sing In</h2>
-            <form action="#" method="post">
+            <form action="<?php echo htmlspecialchars(string: $_SERVER['PHP_SELF']); ?>" method="post">
                 <div class="InputBx">
                     <input type="email" name="email" placeholder="Email" required>
                 </div>
@@ -43,33 +43,31 @@ $dbname = "dota_stat";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-    die("Error connect: " . $conn->connect_error);
+    die("Connection error: " . $conn->connect_error);
 }
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-$stmt = $conn->prepare("SELECT id, username, password FROM users WHERE email = ?");
-$stmt->bind_param("s", $email);
-$stmt->execute();
-$stmt->store_result();
+    $result = $conn->query("SELECT id, username, user_password FROM users WHERE email = '$email'");
 
-if ($stmt->num_rows > 0) {
-    $stmt->bind_result($id, $username, $hashed_password);
-    $stmt->fetch();
-
-    if (password_verify($password, $hashed_password)) {
-        $_SESSION['user_id'] = $id;
-        $_SESSION['username'] = $username;
-        header("Location: index.php");
-        exit();
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if ($password == $row['user_password']) {
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['username'] = $row['username'];
+            echo "Login successful!";
+        } else {
+            echo "Incorrect password!";
+        }
     } else {
-        echo "Error: Incorrect password!";
+        echo "User not found!";
     }
-} else {
-    echo "Error: User not found!";
+
 }
 
-$stmt->close();
+    
+
 $conn->close();
 ?>
