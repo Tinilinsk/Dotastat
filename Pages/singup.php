@@ -36,6 +36,7 @@
 </body>
 </html>
 <?php
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -66,6 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $password_hash, $username, $email);
 
         if ($stmt->execute()) {
+            
+            $_SESSION['username'] = $username;
+            $_SESSION['email'] = $email;
             header("Location: index.php");
             exit();
         } else {

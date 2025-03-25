@@ -45,7 +45,7 @@ session_start();
                     </a>
                 </div>
                 <div class="registration">
-                    <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php if (isset($_SESSION['username'])): ?>
                         <a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
                     <?php else: ?>
                         <a href="singIn.php">Sing In</a>
