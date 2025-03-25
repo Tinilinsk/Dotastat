@@ -1,14 +1,13 @@
 <?php
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../Style/style.css">
+    <link rel="stylesheet" href="../Style/profileStyle.css">
     <title>Dota Stat</title>
 </head>
 <body class="container">
@@ -45,36 +44,17 @@ session_start();
                     </a>
                 </div>
                 <div class="registration">
-                    <?php if (isset($_SESSION['user_id'])): ?>
-                        <a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
-                    <?php else: ?>
-                        <a href="singIn.php">Sing In</a>
-                    <?php endif; ?>
+                    <a href="logOut.php">Log out</a>
                 </div>
             </div>
         </div>
     </header>
     <div class="main">
-        <div class="news_section">
-            <h2>Latest News</h2>
-            <div class="news_item">Placeholder for news 1</div>
-            <div class="news_item">Placeholder for news 2</div>
-            <div class="news_item">Placeholder for news 3</div>
-            <div class="news_item">Placeholder for news 4</div>
-        </div>
-        <div class="side_section">
-            <div class="top_players">
-                <h2>Top Players</h2>
-                <div class="player_item">Player 1</div>
-                <div class="player_item">Player 2</div>
-                <div class="player_item">Player 3</div>
-            </div>
-            <div class="top_heroes">
-                <h2>Top Heroes</h2>
-                <div class="hero_item">Hero 1</div>
-                <div class="hero_item">Hero 2</div>
-                <div class="hero_item">Hero 3</div>
-            </div>
+        <div class="info">
+            <h4>Username: </h4>
+            <p><?php echo htmlspecialchars($_SESSION['username']); ?></p>
+            <h4>Email: </h4>
+            <p><?php echo $_SESSION['email']; ?></p>
         </div>
     </div>
 </body>
