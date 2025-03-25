@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +45,11 @@
                     </a>
                 </div>
                 <div class="registration">
-                    <a href="singIn.php">Sing In</a>
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
+                    <?php else: ?>
+                        <a href="singIn.php">Sing In</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
