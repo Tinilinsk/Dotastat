@@ -56,6 +56,9 @@ session_start();
             <h4>Email: </h4>
             <p><?php echo $_SESSION['email']; ?></p>
         </div>
+        <div class="delete">
+            <input type="button" value="Delete">
+        </div>
     </div>
 </body>
 </html>
