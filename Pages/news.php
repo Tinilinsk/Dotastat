@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../Style/heroesStyle.css">
+    <link rel="stylesheet" href="../Style/newsStyle.css">
     <title>Dota Stat</title>
 </head>
 <body class="container">
@@ -33,7 +33,7 @@ session_start();
                         <a href="">Matches</a>
                         </li>
                         <li>
-                        <a href="news.php">News</a>
+                        <a href="">News</a>
                         </li>
                     </ul>    
                 </div>
@@ -55,20 +55,7 @@ session_start();
         </div>
     </header>
     <div class="main">
-        <div class="text">
-            <h1>Hero facet stats</h1>
-            <h2>Explore the meta trends for all heroes and facets in Dota 2. 
-                Filter by position, rank, game mode, and date range to see the most popular heroes and how they perform.</h2>
-        </div>
-        <div class="switchers">
-            <div class="switch-container">
-                <input type="radio" id="option1" name="option" checked>
-                <label for="option1" class="switch-option">All Pick</label>
-
-                <input type="radio" id="option2" name="option">
-                <label for="option2" class="switch-option">Turbo</label>
-            </div>
-        </div>
+        <h1>The Dotastat News</h1>
     </div>
 </body>
 </html>
