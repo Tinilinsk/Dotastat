@@ -51,14 +51,48 @@ session_start();
     </header>
     <div class="main">
         <div class="info">
-            <h4>Username: </h4>
-            <p><?php echo htmlspecialchars($_SESSION['username']); ?></p>
+            <div class="user_info">
+                <h4>Username: </h4>
+                <p><?php echo htmlspecialchars($_SESSION['username']); ?></p>
+                <a href="update_username.php">Update</a>
+            </div>
             <h4>Email: </h4>
             <p><?php echo $_SESSION['email']; ?></p>
         </div>
-        <div class="delete">
-            <input type="button" value="Delete">
-        </div>
+        <form method="post">
+            <div class="delete">
+                <input type="submit" name="delete" value="Delete">
+            </div>
+        </form>
     </div>
 </body>
 </html>
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "dota_stat";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Error: " . $conn->connect_error);
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
+    $user_id = $_SESSION['user_id'];
+    $sql = "DELETE FROM users WHERE id=$user_id";
+    echo $user_id;
+
+    if ($conn->query($sql) === true) {
+        session_destroy();
+        header("Location: index.php");
+        exit();
+    } else {
+        echo "Error deleting record: " . $conn->error;
+    }
+
+    $conn->close();
+    }
+
+?>
