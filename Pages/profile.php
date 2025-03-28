@@ -82,7 +82,6 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
     $user_id = $_SESSION['user_id'];
     $sql = "DELETE FROM users WHERE id=$user_id";
-    echo $user_id;
 
     if ($conn->query($sql) === true) {
         session_destroy();

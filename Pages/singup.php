@@ -63,11 +63,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($check_stmt->num_rows > 0) {
         echo "Account with this email already exists!";
     } else {
+        
         $stmt = $conn->prepare("INSERT INTO users (password_hash, username, email) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $password_hash, $username, $email);
 
         if ($stmt->execute()) {
-            
+            $_SESSION['user_id'] = $stmt->insert_id;
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
             header("Location: index.php");
