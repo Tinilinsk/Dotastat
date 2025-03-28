@@ -32,7 +32,7 @@ session_start();
                         <a href="">Matches</a>
                         </li>
                         <li>
-                        <a href="">News</a>
+                        <a href="news.php">News</a>
                         </li>
                     </ul>    
                 </div>

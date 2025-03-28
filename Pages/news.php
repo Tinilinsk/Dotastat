@@ -56,6 +56,10 @@ session_start();
     </header>
     <div class="main">
         <h1>The Dotastat News</h1>
+        <div class="add_news">
+            <a href="add_news.php">Add News</a>
+        </div>
     </div>
+
 </body>
 </html>
