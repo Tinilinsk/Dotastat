@@ -1,5 +1,20 @@
 <?php
 session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "dota_stat";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Database connection error: " . $conn->connect_error);
+}
+
+$sql = "SELECT news.id, news.title, news.img_url, news.created_at, users.username 
+        FROM news 
+        LEFT JOIN users ON news.author_id = users.id 
+        ORDER BY news.created_at DESC";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +74,18 @@ session_start();
         <div class="add_news">
             <a href="add_news.php">Add News</a>
         </div>
+        <div class="news_list">
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <div class="news_item">
+                    <a href="news_detail.php?id=<?= $row['id'] ?>">
+                        <h2><?= htmlspecialchars($row['title']) ?></h2>
+                        <img src="<?= htmlspecialchars($row['img_url']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
+                    </a>
+                    <p>By <?= htmlspecialchars($row['username'] ?? 'Unknown') ?> | <?= $row['created_at'] ?></p>
+                </div>
+            <?php endwhile; ?>
+        </div>
     </div>
-
+    
 </body>
 </html>

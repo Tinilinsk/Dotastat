@@ -107,3 +107,10 @@ html, body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
+
+.news_list img {
+    max-width: 60%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
