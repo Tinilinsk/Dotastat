@@ -16,12 +16,12 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $title = $conn->real_escape_string($_POST['title']);
-    $content = $conn->real_escape_string($_POST['content']);
+    $title = htmlspecialchars($_POST['title']);
+    $content = htmlspecialchars($_POST['content']);
     $author_id = $_SESSION['user_id'];
 
     if (!empty($_FILES['image']['name'])) {
-        $targetDir = "uploads/";
+        $targetDir = "../uploads/";
         if (!is_dir($targetDir)) {
             mkdir($targetDir, 0777, true);
         }
@@ -42,7 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$title', '$img_url', '$content', '$author_id')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "News added successfully!";
+        header("Location: news.php");
+        exit();
     } else {
         echo "Error: " . $conn->error;
     }
@@ -67,11 +68,10 @@ $conn->close();
     </script>
 </head>
 <body>
-
 <h2>Add News</h2>
 <form method="post" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="Title" required><br>
-    <textarea id="content" name="content" placeholder="News content" required></textarea><br>
+    <textarea id="content" name="content" placeholder="News content"></textarea><br>
     <input type="file" name="image" required><br>
     <button type="submit">Add News</button>
 </form>
