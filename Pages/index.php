@@ -11,7 +11,10 @@ if ($conn->connect_error) {
     die("Error: " . $conn->connect_error);
 }
 
-$sql = "SELECT id, title, img_url FROM news ORDER BY created_at DESC LIMIT 4";
+$sql = "SELECT news.id, news.title, news.img_url, news.created_at, users.username 
+        FROM news 
+        LEFT JOIN users ON news.author_id = users.id 
+        ORDER BY news.created_at DESC LIMIT 4";
 $result = $conn->query($sql);
 ?>
 
@@ -69,14 +72,20 @@ $result = $conn->query($sql);
     </header>
     <div class="main">
         <div class="news_section">
-        <h2>Latest News</h2>
+            <h2>Latest News</h2>
             <?php while ($row = $result->fetch_assoc()): ?>
-                <div class="news_item">
-                    <a href="news_detail.php?id=<?php echo $row['id']; ?>">
+                <a href="news_detail.php?id=<?php echo $row['id']; ?>">
+                    <div class="news_header">
+                        <h3 class="title"><?php echo htmlspecialchars($row['title']); ?></h3>
+                        <div class="news_meta">
+                            <span class="username"><?= htmlspecialchars($row['username'] ?? 'Unknown') ?></span>
+                            <span><?= strftime('%B %d, %Y', strtotime($row['created_at'])) ?></span>
+                        </div>
+                    </div>
+                    <div class="news_item">
                         <img src="<?php echo htmlspecialchars($row['img_url']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>">
-                        <h3><?php echo htmlspecialchars($row['title']); ?></h3>
-                    </a>
-                </div>
+                    </div>
+                </a>
             <?php endwhile; ?>
         </div>
         <div class="side_section">
