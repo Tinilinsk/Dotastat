@@ -15,29 +15,20 @@ session_start();
         <div class="header_menu">
             <div class="navigation_menu">
                 <div class="logo">
-                <a href="index.php">
-                    <svg width="120" height="32" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" y="0" width="120" height="32" fill="#ED3B1C"/>
-                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" text-transform="uppercase">DOTASTAT</text>
-                    </svg>
-                        <!-- <span>DOTASTAT</span> -->
+                    <a href="index.php">
+                        <svg width="120" height="32" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="0" width="120" height="32" fill="#ED3B1C"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" text-transform="uppercase">DOTASTAT</text>
+                        </svg>
                     </a> 
                 </div>
                 <div class="navigation_item">
                     <ul class="navigation_list" style="list-style-type: none;">
-                        <li>
-                        <a href="heroes.php">Heroes</a>
-                        </li>
-                        <li>
-                        <a href="">Items</a>
-                        </li>
+                        <li><a href="heroes.php">Heroes</a></li>
+                        <li><a href="">Items</a></li>
                         <li><a href="">Players</a></li>
-                        <li>
-                        <a href="">Matches</a>
-                        </li>
-                        <li>
-                        <a href="news.php">News</a>
-                        </li>
+                        <li><a href="">Matches</a></li>
+                        <li><a href="news.php">News</a></li>
                     </ul>    
                 </div>
             </div>
@@ -53,21 +44,28 @@ session_start();
             </div>
         </div>
     </header>
+
     <div class="main">
-        <div class="info">
+        <div class="profile_card">
+            <h1>Profile</h1>
             <div class="user_info">
-                <h4>Username: </h4>
-                <p><?php echo htmlspecialchars($_SESSION['username']); ?></p>
-                <a href="update_username.php">Update</a>
+                <div class="info_item">
+                    <h4>Username:</h4>
+                    <p><?php echo htmlspecialchars($_SESSION['username']); ?></p>
+                    <a href="update_username.php">Update</a>
+                </div>
+                <div class="info_item">
+                    <h4>Email:</h4>
+                    <p><?php echo $_SESSION['email']; ?></p>
+                </div>
             </div>
-            <h4>Email: </h4>
-            <p><?php echo $_SESSION['email']; ?></p>
+
+            <form method="post">
+                <div class="delete_account">
+                    <input type="submit" name="delete" value="Delete Account" class="delete_btn">
+                </div>
+            </form>
         </div>
-        <form method="post">
-            <div class="delete">
-                <input type="submit" name="delete" value="Delete">
-            </div>
-        </form>
     </div>
 </body>
 </html>
@@ -96,6 +94,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
     }
 
     $conn->close();
-    }
-
+}
 ?>

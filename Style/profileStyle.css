@@ -1,4 +1,4 @@
-/* ================= Style ================= */
+/* ================= Base Styles ================= */
 a {
     text-decoration: none;
     color: white;
@@ -10,6 +10,7 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: rgb(28, 36, 45);
+    font-family: Arial, sans-serif;
 }
 
 .container {
@@ -31,18 +32,6 @@ html, body {
 .logo {
     margin-right: 15px;
 }
-/* .logo {
-    background: #ED3B1C;
-    color: white;
-    display: inline-block;
-    font-family: Arial, sans-serif;
-    font-size: 20px;
-    height: 32px;
-    line-height: 32px;
-    padding: 0 10px;
-    margin-right: 15px;
-    text-transform: uppercase;
-} */
 
 .navigation_menu {
     display: flex;
@@ -84,42 +73,88 @@ html, body {
     background-color: #c5300f;
 }
 
-.search-icon i:hover {
-    color: #ED3B1C;
+.search_icon a {
+    color: white;
+    font-size: 16px;
 }
 
+/* ================= Small Menu ================= */
 .small_menu {
     display: flex;
     align-items: center;
+    gap: 15px;
 }
 
 .small_menu div {
-    margin-left: 15px;
+    margin-left: 3px;
 }
 
-/* ================= Content ================= */
+/* ================= Profile ================= */
 .main {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.profile_card {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
     width: 100%;
-    max-width: 1028px;
-    margin: 20px auto;
-    gap: 20px;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.info {
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.info h4 {
+.profile_card h1 {
+    text-align: center;
     color: white;
-    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
 }
 
-.info p {
+.user_info {
+    margin-bottom: 20px;
+}
+
+.info_item {
+    margin-bottom: 15px;
+}
+
+.info_item h4 {
+    color: #ED3B1C;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.info_item p {
     color: white;
-    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.info_item a {
+    color: #ED3B1C;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.info_item a:hover {
+    text-decoration: underline;
+}
+
+.delete_account {
+    text-align: center;
+}
+
+.delete_btn {
+    background-color: #ED3B1C;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete_btn:hover {
+    background-color: #c5300f;
 }
