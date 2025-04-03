@@ -85,8 +85,8 @@ $result = $conn->query($sql);
                         <h2><?= htmlspecialchars($row['title']) ?></h2>
                         <img src="<?= htmlspecialchars($row['img_url']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
                     </a>
-                    <p>By <?= htmlspecialchars($row['username'] ?? 'Unknown') ?> | <?= $row['created_at'] ?></p>
-                </div>
+                    <p>By <?= htmlspecialchars($row['username'] ?? 'Unknown') ?> on <?= strftime('%B %d %Y', strtotime($row['created_at'])) ?></p>
+                    </div>
             <?php endwhile; ?>
         </div>
     </div>
