@@ -16,9 +16,13 @@ session_start();
         <div class="header_menu">
             <div class="navigation_menu">
                 <div class="logo">
-                    <a href="index.php">
-                        <span>DOTASTAT</span>
-                    </a>    
+                <a href="index.php">
+                    <svg width="120" height="32" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0" y="0" width="120" height="32" fill="#ED3B1C"/>
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" text-transform="uppercase">DOTASTAT</text>
+                    </svg>
+                        <!-- <span>DOTASTAT</span> -->
+                    </a>     
                 </div>
                 <div class="navigation_item">
                     <ul class="navigation_list" style="list-style-type: none;">

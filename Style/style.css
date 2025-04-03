@@ -27,8 +27,10 @@ html, body {
     justify-content: space-between;
     padding: 10px 20px;
 }
-
 .logo {
+    margin-right: 15px;
+}
+/* .logo {
     background: #ED3B1C;
     color: white;
     display: inline-block;
@@ -39,7 +41,7 @@ html, body {
     padding: 0 10px;
     margin-right: 15px;
     text-transform: uppercase;
-}
+} */
 
 .navigation_menu {
     display: flex;
