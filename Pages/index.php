@@ -1,5 +1,18 @@
 <?php
 session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "dota_stat";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Error: " . $conn->connect_error);
+}
+
+$sql = "SELECT id, title, img_url FROM news ORDER BY created_at DESC LIMIT 4";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -56,11 +69,15 @@ session_start();
     </header>
     <div class="main">
         <div class="news_section">
-            <h2>Latest News</h2>
-            <div class="news_item">Placeholder for news 1</div>
-            <div class="news_item">Placeholder for news 2</div>
-            <div class="news_item">Placeholder for news 3</div>
-            <div class="news_item">Placeholder for news 4</div>
+        <h2>Latest News</h2>
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <div class="news_item">
+                    <a href="news_detail.php?id=<?php echo $row['id']; ?>">
+                        <img src="<?php echo htmlspecialchars($row['img_url']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>">
+                        <h3><?php echo htmlspecialchars($row['title']); ?></h3>
+                    </a>
+                </div>
+            <?php endwhile; ?>
         </div>
         <div class="side_section">
             <div class="top_players">
