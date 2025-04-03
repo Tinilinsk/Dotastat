@@ -36,24 +36,15 @@ $result = $conn->query($sql);
                     <rect x="0" y="0" width="120" height="32" fill="#ED3B1C"/>
                     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" text-transform="uppercase">DOTASTAT</text>
                     </svg>
-                        <!-- <span>DOTASTAT</span> -->
-                    </a> 
+                </a> 
                 </div>
                 <div class="navigation_item">
                     <ul class="navigation_list" style="list-style-type: none;">
-                        <li>
-                        <a href="heroes.php">Heroes</a>
-                        </li>
-                        <li>
-                        <a href="">Items</a>
-                        </li>
+                        <li><a href="heroes.php">Heroes</a></li>
+                        <li><a href="">Items</a></li>
                         <li><a href="">Players</a></li>
-                        <li>
-                        <a href="">Matches</a>
-                        </li>
-                        <li>
-                        <a href="">News</a>
-                        </li>
+                        <li><a href="">Matches</a></li>
+                        <li><a href="">News</a></li>
                     </ul>    
                 </div>
             </div>
@@ -86,10 +77,9 @@ $result = $conn->query($sql);
                         <img src="<?= htmlspecialchars($row['img_url']) ?>" alt="<?= htmlspecialchars($row['title']) ?>">
                     </a>
                     <p>By <?= htmlspecialchars($row['username'] ?? 'Unknown') ?> on <?= strftime('%B %d %Y', strtotime($row['created_at'])) ?></p>
-                    </div>
+                </div>
             <?php endwhile; ?>
         </div>
     </div>
-    
 </body>
 </html>
