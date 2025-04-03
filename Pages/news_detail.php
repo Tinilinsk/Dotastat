@@ -16,7 +16,10 @@ if ($conn->connect_error) {
 }
 
 $id = (int)$_GET['id'];
-$sql = "SELECT title, img_url, content, author_id, created_at FROM news WHERE id = $id";
+$sql = "SELECT news.id, news.title, news.img_url, news.created_at, news.content, users.username 
+        FROM news 
+        LEFT JOIN users ON news.author_id = users.id 
+        ORDER BY news.created_at DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows === 0) {
@@ -40,9 +43,9 @@ $news = $result->fetch_assoc();
     </header>
     <div class="news-detail">
         <h1><?= htmlspecialchars($news['title']) ?></h1>
+        <p>By <?= htmlspecialchars($news['username'] ?? 'Unknown') ?> on <?= strftime('%B %d %Y', strtotime($news['created_at'])) ?></p>
         <img src="<?= htmlspecialchars($news['img_url']) ?>" alt="<?= htmlspecialchars($news['title']) ?>">
         <p><?= htmlspecialchars_decode($news['content']) ?></p>
-        <p>Published on: <?= $news['created_at'] ?></p>
     </div>
 </body>
 </html>
