@@ -37,7 +37,6 @@ $result = $conn->query($sql);
                     <rect x="0" y="0" width="120" height="32" fill="#ED3B1C"/>
                     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" text-transform="uppercase">DOTASTAT</text>
                     </svg>
-                        <!-- <span>DOTASTAT</span> -->
                     </a>    
                 </div>
                 <div class="navigation_item">
