@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user_id'], $_POST[
     }
 }
 
-$stmt = $conn->prepare("SELECT comments.content, comments.created_at, comments.id, users.username 
+$stmt = $conn->prepare("SELECT comments.content, comments.created_at, comments.id, comments.user_id, users.username 
                         FROM comments 
                         JOIN users ON comments.user_id = users.id 
                         WHERE comments.news_id = ? 
@@ -143,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
                     <em><?= date('F d, Y H:i', strtotime($comment['created_at'])) ?></em>
                     <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
                     <?php if (isset($_SESSION['username'])): ?>
-                        <?php if ($news['id'] == $_SESSION['user_id']): ?>
+                        <?php if ($comment['user_id'] == $_SESSION['user_id']): ?>
                         <form method="post">
                             <div class="delete_account">
                                 <input type="submit" name="delete" value="Delete comments" class="delete_btn">
