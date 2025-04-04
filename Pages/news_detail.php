@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 
 $id = (int)$_GET['id'];
 
-$stmt = $conn->prepare("SELECT news.id, news.title, news.img_url, news.created_at, news.content, users.username 
+$stmt = $conn->prepare("SELECT news.id, news.title, news.img_url, news.created_at, news.content, users.username, users.id 
                         FROM news 
                         LEFT JOIN users ON news.author_id = users.id 
                         WHERE news.id = ?");
@@ -50,6 +50,15 @@ $stmt = $conn->prepare("SELECT comments.content, comments.created_at, users.user
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $comments_result = $stmt->get_result();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
+    $comment_id = (int)$_POST['delete'];
+    $stmt = $conn->prepare("DELETE FROM comments WHERE id = ?");
+    $stmt->bind_param("i", $comment_id);
+    $stmt->execute();
+    echo $comment_id;
+    //header("Location: news_detail.php?id=$id");
+}
 ?>
 
 <!DOCTYPE html>
@@ -133,6 +142,15 @@ $comments_result = $stmt->get_result();
                     <strong><?= htmlspecialchars($comment['username']) ?></strong> 
                     <em><?= date('F d, Y H:i', strtotime($comment['created_at'])) ?></em>
                     <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <?php if ($news['id'] == $_SESSION['user_id']): ?>
+                        <form method="post">
+                            <div class="delete_account">
+                                <input type="submit" name="delete" value="Delete comments" class="delete_btn">
+                            </div>
+                        </form>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             <?php endwhile; ?>
         </div>
