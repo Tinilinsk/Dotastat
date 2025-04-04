@@ -125,7 +125,7 @@ $comments_result = $stmt->get_result();
                 </form>
             </div>
         <?php else: ?>
-            <p><a href="login.php">Log in</a> to leave a comment.</p>
+            <p><a href="singIn.php">Sing In</a> to leave a comment.</p>
         <?php endif; ?>
 
         <div class="comment-list">
