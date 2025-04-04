@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user_id'], $_POST[
     }
 }
 
-$stmt = $conn->prepare("SELECT comments.content, comments.created_at, users.username 
+$stmt = $conn->prepare("SELECT comments.content, comments.created_at, comments.id, users.username 
                         FROM comments 
                         JOIN users ON comments.user_id = users.id 
                         WHERE comments.news_id = ? 
@@ -52,12 +52,12 @@ $stmt->execute();
 $comments_result = $stmt->get_result();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
-    $comment_id = (int)$_POST['delete'];
+    $comment_id = (int)$_POST['comment_id'];
     $stmt = $conn->prepare("DELETE FROM comments WHERE id = ?");
     $stmt->bind_param("i", $comment_id);
     $stmt->execute();
     echo $comment_id;
-    //header("Location: news_detail.php?id=$id");
+    header("Location: news_detail.php?id=$id");
 }
 ?>
 
@@ -147,6 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
                         <form method="post">
                             <div class="delete_account">
                                 <input type="submit" name="delete" value="Delete comments" class="delete_btn">
+                                <input type="hidden" name="comment_id" value="<?= $comment['id'] ?>">
                             </div>
                         </form>
                         <?php endif; ?>
