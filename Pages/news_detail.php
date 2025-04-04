@@ -16,11 +16,13 @@ if ($conn->connect_error) {
 }
 
 $id = (int)$_GET['id'];
-$sql = "SELECT news.id, news.title, news.img_url, news.created_at, news.content, users.username 
-        FROM news 
-        LEFT JOIN users ON news.author_id = users.id 
-        ORDER BY news.created_at DESC";
-$result = $conn->query($sql);
+$stmt = $conn->prepare("SELECT news.id, news.title, news.img_url, news.created_at, news.content, users.username 
+                        FROM news 
+                        LEFT JOIN users ON news.author_id = users.id 
+                        WHERE news.id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows === 0) {
     die("News not found.");
