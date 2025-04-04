@@ -57,8 +57,11 @@ html, body {
 }
 
 .comment {
-    border-top: 1px solid #ccc;
-    padding: 10px 0;
+    background-color: #2f3b47;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    color: #fff;
 }
 
 .comment strong {
