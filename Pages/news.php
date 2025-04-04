@@ -41,10 +41,10 @@ $result = $conn->query($sql);
                 <div class="navigation_item">
                     <ul class="navigation_list" style="list-style-type: none;">
                         <li><a href="heroes.php">Heroes</a></li>
-                        <li><a href="">Items</a></li>
+                        <li><a href="items.php">Items</a></li>
                         <li><a href="">Players</a></li>
                         <li><a href="">Matches</a></li>
-                        <li><a href="">News</a></li>
+                        <li><a href="news.php">News</a></li>
                     </ul>    
                 </div>
             </div>

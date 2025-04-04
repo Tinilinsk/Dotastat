@@ -46,7 +46,7 @@ $result = $conn->query($sql);
                         <a href="heroes.php">Heroes</a>
                         </li>
                         <li>
-                        <a href="">Items</a>
+                        <a href="items.php">Items</a>
                         </li>
                         <li><a href="">Players</a></li>
                         <li>
