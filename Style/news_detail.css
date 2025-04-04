@@ -25,3 +25,49 @@ html, body {
     object-fit: cover;
     border-radius: 5px;
 }
+
+.comments-section {
+    margin-top: 40px;
+}
+
+.comment-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    resize: vertical;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.comment-form button {
+    display: block;
+    margin-top: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.comment-list {
+    margin-top: 20px;
+}
+
+.comment {
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.comment strong {
+    color: rgb(43, 240, 79); 
+    font-weight: bold;
+}
+
+.comment em {
+    font-size: 12px;
+    color: #777;
+    margin-left: 10px;
+}
