@@ -62,9 +62,51 @@ $comments_result = $stmt->get_result();
 </head>
 <body class="container">
     <header>
-        <a href="news.php">Back to News</a>
+        <div class="header_menu">
+            <div class="navigation_menu">
+                <div class="logo">
+                    <a href="index.php">
+                    <svg width="120" height="32" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0" y="0" width="120" height="32" fill="#ED3B1C"/>
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" text-transform="uppercase">DOTASTAT</text>
+                    </svg>
+                        <!-- <span>DOTASTAT</span> -->
+                    </a>    
+                </div>
+                <div class="navigation_item">
+                    <ul class="navigation_list" style="list-style-type: none;">
+                        <li>
+                        <a href="heroes.php">Heroes</a>
+                        </li>
+                        <li>
+                        <a href="">Items</a>
+                        </li>
+                        <li><a href="">Players</a></li>
+                        <li>
+                        <a href="">Matches</a>
+                        </li>
+                        <li>
+                        <a href="news.php">News</a>
+                        </li>
+                    </ul>    
+                </div>
+            </div>
+            <div class="small_menu">
+                <div class="search_icon">
+                    <a href="">
+                        <i class="fa fa-search"></i>
+                    </a>
+                </div>
+                <div class="registration">
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
+                    <?php else: ?>
+                        <a href="singIn.php">Sing In</a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
     </header>
-
     <div class="news-detail">
         <h1><?= htmlspecialchars($news['title']) ?></h1>
         <p>By <?= htmlspecialchars($news['username'] ?? 'Unknown') ?> on <?= date('F d, Y', strtotime($news['created_at'])) ?></p>
