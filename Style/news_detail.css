@@ -145,3 +145,43 @@ html, body {
     color: #777;
     margin-left: 10px;
 }
+
+/* =============== WCAG ============================== */
+.accessibility-toolbar {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    display: flex;
+    gap: 5px;
+  }
+  
+  .accessibility-toolbar button {
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    color: #000;
+  }
+  
+  body.dark-theme {
+    background-color: #f4f4f4 !important;
+    color: #111 !important;
+  }
+  
+  body.dark-theme .news_section,
+  body.dark-theme .top_players,
+  body.dark-theme .top_heroes,
+  body.dark-theme .news_item,
+  body.dark-theme .player_item,
+  body.dark-theme .hero_item,
+  body.dark-theme .header_menu {
+    background-color: #e0e0e0 !important;
+    color: #111 !important;
+  }
+  
+  body.dark-theme a {
+    color: #111 !important;
+  }

@@ -67,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Style/news_detail.css">
+    <script defer src="../scripts/accessibility.js"></script>
     <title><?= htmlspecialchars($news['title']) ?></title>
 </head>
 <body class="container">
@@ -115,6 +116,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
             </div>
         </div>
     </header>
+    <div class="accessibility-toolbar">
+        <button onclick="changeFontSize('increase')">A+</button>
+        <button onclick="changeFontSize('decrease')">A-</button>
+        <button onclick="changeFontSize('reset')">A</button>
+        <button onclick="toggleTheme()">☼/☽</button>
+    </div>
     <div class="news-detail">
         <h1><?= htmlspecialchars($news['title']) ?></h1>
         <p>By <?= htmlspecialchars($news['username'] ?? 'Unknown') ?> on <?= date('F d, Y', strtotime($news['created_at'])) ?></p>
