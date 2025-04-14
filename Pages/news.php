@@ -24,6 +24,7 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../Style/newsStyle.css">
+    <script defer src="../scripts/accessibility.js"></script>
     <title>Dota Stat</title>
 </head>
 <body class="container">
@@ -64,6 +65,12 @@ $result = $conn->query($sql);
             </div>
         </div>
     </header>
+    <div class="accessibility-toolbar">
+        <button onclick="changeFontSize('increase')">A+</button>
+        <button onclick="changeFontSize('decrease')">A-</button>
+        <button onclick="changeFontSize('reset')">A</button>
+        <button onclick="toggleTheme()">☼/☽</button>
+    </div>
     <div class="main">
         <h1>The Dotastat News</h1>
         <div class="add_news">
